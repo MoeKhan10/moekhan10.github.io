@@ -1,20 +1,38 @@
-<HTML>
-<HEADER><TITLE> See on browser tab</TITLE></HEADER>
-<BODY style="background-color:blue">
-<a class="weatherwidget-io" href="https://forecast7.com/en/43d65n79d38/toronto/" data-label_1="TORONTO" data-label_2="WEATHER" data-theme="original" >TORONTO WEATHER</a>
-<script>
-!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="description" content="Pose Detection Application using TensorFlow.js and Teachable
+Machine">
+ <meta name="author" content="Your Name">
+ <title>Pose Detection</title>
+ <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+ <div class="container">
+ <div class="button-container">
+ <div class="button-pair">
+ <button type="button" onclick="init()">Start Webcam</button>
+ <button type="button" onclick="stopWebcam()">Stop Webcam</button>
+ </div>
+ <div class="button-pair">
+ <button type="button" onclick="playInstructionVideo()">Start Video</button>
+ <button type="button" onclick="stopInstructionVideo()">Stop Video</button>
+ </div>
+ </div>
+ <div class="video-container">
+ <div><canvas id="canvas"></canvas></div>
+ <div class="video-wrapper">
+ <video id="instructionVideo" src="vid.mp4"></video>
+ <div id="videoTime">Time: 0:00</div>
+ </div>
+ </div>
+ <div id="label-container"></div>
+ </div>
 
-<iframe src="https://calendar.google.com/calendar/embed?src=tdsb.on.ca_c5m1q2ua84nj9uhl7th50v0dkg%40group.calendar.google.com&ctz=America%2FToronto" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-<div id="planhub-speed-test-default" data-widget="wid6192c4f30a2f9en">
-    <a href="https://www.planhub.ca/speed-test" title="PlanHub" style="display: block; text-align: center; padding: 5px 15px">
-        <img src="https://www.planhub.ca/img/planhub/by-planhub.png" alt="Speed Test by PlanHub" width="145" height="43">
-    </a>
-    <noscript>Sorry, your browser does not support JavaScript! Please visit
-        <a href="https://www.planhub.ca" title="PlanHub">PlanHub.ca</a></noscript>
-    <script src="https://www.planhub.ca/widgets/launch-widget-speedtest-default-en.js"></script>
-</div>
-    
-</BODY>
-</HTML>
+ <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachinepose.min.js"></script>
+ <script src="script.js"></script>
+</body>
+</html>
