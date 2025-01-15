@@ -49,8 +49,8 @@ html, body {
 
 #instructionVideo {
   width: 600px;
-  height: 1000px;
-  object-fit: fill;
+  height: 800px;
+  object-fit: cover;
 }
 
 #videoTime {
