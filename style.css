@@ -50,7 +50,7 @@ html, body {
 #instructionVideo {
   width: 600px;
   height: 1000px;
-  object-fit: cover;
+  object-fit: fill;
 }
 
 #videoTime {
