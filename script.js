@@ -116,19 +116,35 @@ function checkPose(prediction, video) {
         const poseState = poseStates[`pose${poseNumber}`];
         
         switch(poseNumber) {
-            case '1':
-                if (time >= 0.9 && time <= 3.0 && !poseState.triggered) {
-                    triggerExplosion(poseState);
+           case '1':
+                if ((time >= 5.97 && time <= 6.32 && !poseState.firstWindowTriggered) ||
+                    (time >= 30.34 && time <= 30.78 && !poseState.secondWindowTriggered)) {
+                    if (time <= 6.32) {
+                        poseState.firstWindowTriggered = true;
+                    } else {
+                        poseState.secondWindowTriggered = true;
+                    }
+                    explosionActive = true;
+                    playExplosionSound();
+                    setTimeout(() => { explosionActive = false; }, 300);
                 }
                 break;
-            case '2':
-                if (time >= 5.5 && time <= 7.5 && !poseState.triggered) {
-                    triggerExplosion(poseState);
+           case '2':
+                if ((time >= 11.11 && time <= 12.42 && !poseState.firstWindowTriggered) ||
+                    (time >= 35.39 && time <= 36.58 && !poseState.secondWindowTriggered)) {
+                    if (time <= 13.0) {
+                        poseState.firstWindowTriggered = true;
+                    } else {
+                        poseState.secondWindowTriggered = true;
+                    }
+                    explosionActive = true;
+                    playExplosionSound();
+                    setTimeout(() => { explosionActive = false; }, 300);
                 }
                 break;
             case '3':
-                if ((time >= 11.5 && time <= 13.0 && !poseState.firstWindowTriggered) ||
-                    (time >= 17.5 && time <= 19.5 && !poseState.secondWindowTriggered)) {
+                if ((time >= 14.08 && time <= 15.0 && !poseState.firstWindowTriggered) ||
+                    (time >= 38.53 && time <= 39.48 && !poseState.secondWindowTriggered)) {
                     if (time <= 13.0) {
                         poseState.firstWindowTriggered = true;
                     } else {
@@ -140,12 +156,12 @@ function checkPose(prediction, video) {
                 }
                 break;
             case '4':
-                if (time >= 15.5 && time <= 16.6 && !poseState.triggered) {
+                if (time >= 22.33 && time <= 24.42 && !poseState.triggered) {
                     triggerExplosion(poseState);
                 }
                 break;
             case '5':
-                if (time >= 19.5 && !poseState.triggered) {
+                if (time >= 26.78 && time <= 27.59 && !poseState.triggered) {
                     triggerExplosion(poseState);
                 }
                 break;
