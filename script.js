@@ -7,7 +7,7 @@
 // Model URL from Teachable Machine
 //**************************************************
 //* as before, paste your lnk below
-let URL = "paste your link here";
+let URL = "https://teachablemachine.withgoogle.com/models/CMBhs4EAW/";
 
 
 
@@ -97,13 +97,13 @@ async function predict() {
 function checkPose(prediction, video) {
     const time = video.currentTime;
     const prob = prediction.probability;
-    
+
     // Only respond to pose1 through pose5 labels
     const poseNumber = prediction.className.toLowerCase().replace(/[^0-9]/g, '');
     const isPoseLabel = prediction.className.toLowerCase().includes('pose') && poseNumber >= 1 && poseNumber <= 5;
-    
+
     if (!isPoseLabel) return;
-    
+
     if (!poseStates[`pose${poseNumber}`]) {
         poseStates[`pose${poseNumber}`] = {
             triggered: false,
@@ -114,11 +114,11 @@ function checkPose(prediction, video) {
 
     if (prob > 0.8 && !explosionActive) {
         const poseState = poseStates[`pose${poseNumber}`];
-        
+
         switch(poseNumber) {
-           case '1':
+            case '1':
                 if ((time >= 5.97 && time <= 6.32 && !poseState.firstWindowTriggered) ||
-                    (time >= 30.34 && time <= 30.78 && !poseState.secondWindowTriggered)) {
+                    (time >= 30.34 && time <= 30.79 && !poseState.secondWindowTriggered)) {
                     if (time <= 6.32) {
                         poseState.firstWindowTriggered = true;
                     } else {
@@ -129,10 +129,10 @@ function checkPose(prediction, video) {
                     setTimeout(() => { explosionActive = false; }, 300);
                 }
                 break;
-           case '2':
-                if ((time >= 11.11 && time <= 12.42 && !poseState.firstWindowTriggered) ||
+            case '2':
+                if ((time >= 11.08 && time <= 12.42 && !poseState.firstWindowTriggered) ||
                     (time >= 35.39 && time <= 36.58 && !poseState.secondWindowTriggered)) {
-                    if (time <= 13.0) {
+                    if (time <= 12.42) {
                         poseState.firstWindowTriggered = true;
                     } else {
                         poseState.secondWindowTriggered = true;
@@ -144,8 +144,8 @@ function checkPose(prediction, video) {
                 break;
             case '3':
                 if ((time >= 14.08 && time <= 15.0 && !poseState.firstWindowTriggered) ||
-                    (time >= 38.53 && time <= 39.48 && !poseState.secondWindowTriggered)) {
-                    if (time <= 13.0) {
+                    (time >= 38.53 && time <= 39.5 && !poseState.secondWindowTriggered)) {
+                    if (time <= 15.0) {
                         poseState.firstWindowTriggered = true;
                     } else {
                         poseState.secondWindowTriggered = true;
@@ -246,7 +246,7 @@ async function playInstructionVideo() {
     if (model) {
         processFrame();
     } else {
-        console.log("Please start webcam first to load the model");
+        console.log("https://teachablemachine.withgoogle.com/models/CMBhs4EAW/");
     }
 }
 
