@@ -117,9 +117,9 @@ function checkPose(prediction, video) {
 
         switch(poseNumber) {
             case '1':
-                if ((time >= 5.97 && time <= 6.32 && !poseState.firstWindowTriggered) ||
-                    (time >= 30.34 && time <= 30.79 && !poseState.secondWindowTriggered)) {
-                    if (time <= 6.32) {
+                if ((time >= 5.67 && time <= 6.37 && !poseState.firstWindowTriggered) ||
+                    (time >= 30.09 && time <= 30.79 && !poseState.secondWindowTriggered)) {
+                    if (time <= 6.37) {
                         poseState.firstWindowTriggered = true;
                     } else {
                         poseState.secondWindowTriggered = true;
@@ -161,7 +161,7 @@ function checkPose(prediction, video) {
                 }
                 break;
             case '5':
-                if (time >= 26.78 && time <= 27.59 && !poseState.triggered) {
+                if (time >= 26.68 && time <= 27.59 && !poseState.triggered) {
                     triggerExplosion(poseState);
                 }
                 break;
