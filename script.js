@@ -130,7 +130,7 @@ function checkPose(prediction, video) {
                 }
                 break;
             case '2':
-                if ((time >= 11.08 && time <= 12.42 && !poseState.firstWindowTriggered) ||
+                if ((time >= 10.89 && time <= 12.42 && !poseState.firstWindowTriggered) ||
                     (time >= 35.39 && time <= 36.58 && !poseState.secondWindowTriggered)) {
                     if (time <= 12.42) {
                         poseState.firstWindowTriggered = true;
@@ -143,8 +143,8 @@ function checkPose(prediction, video) {
                 }
                 break;
             case '3':
-                if ((time >= 14.08 && time <= 15.0 && !poseState.firstWindowTriggered) ||
-                    (time >= 38.53 && time <= 39.5 && !poseState.secondWindowTriggered)) {
+                if ((time >= 12.82 && time <= 15.0 && !poseState.firstWindowTriggered) ||
+                    (time >= 37.23 && time <= 39.5 && !poseState.secondWindowTriggered)) {
                     if (time <= 15.0) {
                         poseState.firstWindowTriggered = true;
                     } else {
@@ -161,6 +161,11 @@ function checkPose(prediction, video) {
                 }
                 break;
             case '5':
+                if (time >= 24.80 && time <= 25.64 && !poseState.triggered) {
+                    triggerExplosion(poseState);
+                }
+                break;
+            case '6':
                 if (time >= 26.68 && time <= 27.59 && !poseState.triggered) {
                     triggerExplosion(poseState);
                 }
@@ -258,12 +263,15 @@ function stopInstructionVideo() {
     if (canvas) {
         canvas.remove();
     }
-    pose1Triggered = false;
-    pose2Triggered = false;
+    pose1FirstWindowTriggered = false;
+    pose1SecondWindowTriggered = false;
+    pose2FirstWindowTriggered = false;
+    pose2SecondWindowTriggered = false;
     pose3FirstWindowTriggered = false;
     pose3SecondWindowTriggered = false;
     pose4Triggered = false;
     pose5Triggered = false;
+    pose6Triggered = false;
 }
 
 function stopWebcam() {
